@@ -6,7 +6,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table
-data class UserEntity(
+public final data class UserEntity(
     @Id val id: String,
     val username: String
 )
