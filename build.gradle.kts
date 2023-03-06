@@ -6,7 +6,7 @@ plugins {
     id("org.graalvm.buildtools.native") version "0.9.18"
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.spring") version "1.7.22"
-    kotlin("plugin.jpa") version "1.7.22"
+    kotlin("plugin.jpa") version "1.7.22"//可以帮助在编译的时候为entity生成无参构造器
 }
 
 group = "com.wangrui"
