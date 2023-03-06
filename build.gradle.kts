@@ -17,6 +17,9 @@ repositories {
     maven {
         url = uri("https://developer.huawei.com/repo/")
     }
+    maven {
+        url = uri("https://maven.aliyun.com/repository/central")
+    }
 
     maven {
         url = uri("https://jfrog.betalpha.com/artifactory/libs-release")
@@ -62,7 +65,11 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
+        freeCompilerArgs = listOf(
+            "-Xjsr305=strict",
+            "-Xjvm-default=all",
+            "-Xno-param-assertions",
+        )
         jvmTarget = "17"
     }
 }
