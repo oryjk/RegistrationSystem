@@ -18,8 +18,7 @@ import java.time.LocalDateTime
 @RestController
 @RequestMapping("/api/competition")
 class CompetitionController(
-    val competitionUseCase: CreateCompetitionUseCase,
-    val competitionInfoUseCase: CompetitionInfoUseCase
+    val competitionUseCase: CreateCompetitionUseCase, val competitionInfoUseCase: CompetitionInfoUseCase
 ) {
     @PostMapping("/create")
     fun createCompetition(competitionRequest: CompetitionRequest): CompetitionView {
