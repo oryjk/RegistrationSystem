@@ -13,9 +13,6 @@ import java.time.LocalDateTime
 @Entity
 @Table(name = "competition")
 open class CompetitionEntity(
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE) @Column(
-        name = "id", nullable = false
-    ) val id: CompetitionId?,
     private val name: String?,
     private val gameType: Competition.GameType?,
     private val gameDate: LocalDateTime?,
@@ -23,7 +20,10 @@ open class CompetitionEntity(
     private val contacts: String?,
     private val competitionStatement: String?,
     private val applicantsLimit: Int?,
-    val createTime: LocalDateTime?
+    private val createTime: LocalDateTime?,
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE) @Column(
+        name = "id", nullable = false
+    ) val id: CompetitionId? = null,
 ) {
 
 
@@ -34,7 +34,6 @@ open class CompetitionEntity(
     companion object {
         fun toCompetitionEntity(competition: Competition): CompetitionEntity {
             return CompetitionEntity(
-                competition.id,
                 competition.name,
                 competition.gameType,
                 competition.gameDate,
@@ -42,7 +41,8 @@ open class CompetitionEntity(
                 competition.contacts,
                 competition.competitionStatement,
                 competition.applicantsLimit,
-                LocalDateTime.now()
+                LocalDateTime.now(),
+                competition.id,
             )
         }
     }

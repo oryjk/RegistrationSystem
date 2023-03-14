@@ -6,6 +6,7 @@ import com.wangrui.registrationsystem.competition.application.port.out.Competiti
 import com.wangrui.registrationsystem.competition.application.port.out.CompetitionWritePort
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
+import com.wangrui.registrationsystem.competition.domain.CompetitionInfo
 import org.springframework.stereotype.Service
 
 /**
@@ -16,10 +17,12 @@ import org.springframework.stereotype.Service
 
 @Service
 class CompetitionInfoService(
-    val competitionReaderPort: CompetitionReaderPort, val competitionWritePort: CompetitionWritePort
+    val competitionReaderPort: CompetitionReaderPort,
+    val competitionWritePort: CompetitionWritePort,
 ) : CompetitionInfoUseCase, CreateCompetitionUseCase {
-    override fun getCompetition(id: CompetitionId): Competition {
-        return competitionReaderPort.getCompetition(id)
+    override fun getCompetition(id: CompetitionId): CompetitionInfo {
+        val competition = competitionReaderPort.getCompetition(id)
+        // TODO: 需要查询 比赛和用户的关联信息表
     }
 
     override fun createCompetition(competition: Competition): Competition {
