@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    include: db
+    active: test
+  jmx:
+    enabled: true
+
+management:
+  server:
+    port: 9098
+  endpoints:
+    web:
+      base-path: /man
+      exposure:
+        include: jolokia
+  endpoint:
+    jolokia:
+      enabled: true
+
+server:
+  error:
+    include-message: always
+#  port: 5678
+#grpc:
+#  server:
+#    port: 9099
+
