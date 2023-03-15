@@ -1,5 +1,6 @@
 package com.wangrui.registrationsystem.competition.adapter.out
 
+import com.wangrui.registrationsystem.competition.adapter.out.jpa.repository.CompetitionRepository
 import com.wangrui.registrationsystem.competition.application.port.out.CompetitionReaderPort
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId

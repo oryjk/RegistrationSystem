@@ -1,6 +1,7 @@
 package com.wangrui.registrationsystem.competition.application.port.`in`
 
 import com.wangrui.registrationsystem.competition.domain.Competition
+import com.wangrui.registrationsystem.competition.domain.CompetitionId
 
 /**
  * Created on 2023/3/7 22:57.
@@ -10,4 +11,5 @@ import com.wangrui.registrationsystem.competition.domain.Competition
 
 interface CreateCompetitionUseCase {
     fun createCompetition(competition: Competition): Competition
+    fun getCompetition(id: CompetitionId): Competition
 }

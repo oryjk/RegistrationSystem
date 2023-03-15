@@ -1,4 +1,4 @@
-package com.wangrui.registrationsystem.competition.adapter.out
+package com.wangrui.registrationsystem.competition.adapter.out.jpa.entity
 
 import jakarta.persistence.Embeddable
 import jakarta.persistence.EmbeddedId
@@ -8,14 +8,14 @@ import java.io.Serializable
 
 @Entity
 @Table
-open class CompetitionInfoEntity {
+open class RegistrationCompetitionInfoEntity {
     @EmbeddedId
-    val competitionInfoPK: CompetitionInfoPK? = null
+    open val id: RegistrationCompetitionInfoEntityPK? = null
 }
 
 
 @Embeddable
-open class CompetitionInfoPK : Serializable {
+open class RegistrationCompetitionInfoEntityPK : Serializable {
     open var competitionId: String? = null
     open var userId: String? = null
 }
