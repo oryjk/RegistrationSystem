@@ -20,35 +20,6 @@ repositories {
     maven {
         url = uri("https://maven.aliyun.com/repository/central")
     }
-
-    maven {
-        url = uri("https://jfrog.betalpha.com/artifactory/libs-release")
-        credentials {
-            username = "betalpha"
-            password = "beifa888"
-        }
-    }
-    maven {
-        url = uri("https://jfrog.betalpha.com/artifactory/libs-snapshot")
-        credentials {
-            username = "betalpha"
-            password = "beifa888"
-        }
-    }
-    maven {
-        url = uri("https://jfrog.betalpha.com/artifactory/betalpha-open")
-        credentials {
-            username = "betalpha"
-            password = "beifa888"
-        }
-    }
-    maven {
-        url = uri("https://jfrog.betalpha.com/artifactory/spring-milestones/")
-        credentials {
-            username = "betalpha"
-            password = "beifa888"
-        }
-    }
     mavenLocal()
     mavenCentral()
 }
