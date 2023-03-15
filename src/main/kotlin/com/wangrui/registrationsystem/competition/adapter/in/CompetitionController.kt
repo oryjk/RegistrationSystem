@@ -3,9 +3,7 @@ package com.wangrui.registrationsystem.competition.adapter.`in`
 import com.wangrui.registrationsystem.competition.application.port.`in`.CreateCompetitionUseCase
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.time.LocalDateTime
 
 /**
@@ -25,8 +23,8 @@ class CompetitionController(
         return CompetitionView.toCompetitionView(competition)
     }
 
-    @PostMapping("/info")
-    fun getCompetitionInfo(id: CompetitionId): CompetitionView {
+    @GetMapping("/{id}")
+    fun getCompetition(@PathVariable("id") id: CompetitionId): CompetitionView {
         val competition = competitionUseCase.getCompetition(id)
         return CompetitionView.toCompetitionView(competition)
     }
