@@ -1,6 +1,5 @@
 package com.wangrui.registrationsystem.competition.adapter.`in`
 
-import com.wangrui.registrationsystem.competition.application.port.`in`.CompetitionInfoUseCase
 import com.wangrui.registrationsystem.competition.application.port.`in`.CreateCompetitionUseCase
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
@@ -18,7 +17,7 @@ import java.time.LocalDateTime
 @RestController
 @RequestMapping("/api/competition")
 class CompetitionController(
-    val competitionUseCase: CreateCompetitionUseCase, val competitionInfoUseCase: CompetitionInfoUseCase
+    val competitionUseCase: CreateCompetitionUseCase
 ) {
     @PostMapping("/create")
     fun createCompetition(competitionRequest: CompetitionRequest): CompetitionView {
@@ -28,7 +27,7 @@ class CompetitionController(
 
     @PostMapping("/info")
     fun getCompetitionInfo(id: CompetitionId): CompetitionView {
-        val competition = competitionInfoUseCase.getCompetition(id)
+        val competition = competitionUseCase.getCompetition(id)
         return CompetitionView.toCompetitionView(competition)
     }
 

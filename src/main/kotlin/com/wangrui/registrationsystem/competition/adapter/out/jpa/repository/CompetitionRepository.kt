@@ -1,5 +1,6 @@
-package com.wangrui.registrationsystem.competition.adapter.out
+package com.wangrui.registrationsystem.competition.adapter.out.jpa.repository
 
+import com.wangrui.registrationsystem.competition.adapter.out.jpa.entity.CompetitionEntity
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository

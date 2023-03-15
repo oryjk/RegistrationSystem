@@ -1,5 +1,7 @@
 package com.wangrui.registrationsystem.competition.adapter.out
 
+import com.wangrui.registrationsystem.competition.adapter.out.jpa.entity.CompetitionEntity
+import com.wangrui.registrationsystem.competition.adapter.out.jpa.repository.CompetitionRepository
 import com.wangrui.registrationsystem.competition.application.port.out.CompetitionWritePort
 import com.wangrui.registrationsystem.competition.domain.Competition
 import org.springframework.stereotype.Service

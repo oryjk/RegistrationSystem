@@ -1,0 +1,306 @@
+[versions]
+# bar beyond
+barBeyond = "1.13.25-formula"
+formula = "2.0.1"
+
+# scala
+scalaBinary = "2.13"
+scalaLibrary = "2.13.8"
+scalaTest = "3.2.10"
+
+# kotlin
+kotlin = "1.7.20"
+kotlinx_plugin = "1.6.4"
+
+# akka akka stream slick 3.0.4
+akka = "2.5.32"
+akka6 = "2.6.19"
+akkaStreamSlick = "2.0.0"
+akkaStreamParquet = "2.0.0"
+
+# reactor
+reactiveStreams = "1.0.3"
+reactorCore = "3.4.21"
+reactorTest = "3.4.18"
+
+# spring
+# springboot 2.6.6 版本的 netty-codec-http2-2.1.75-Final 存在一个已知的问题 导致 grpc 代理服务启动失败 升级至2.7.3
+springboot = "2.7.4"
+# springboot 对应的spring版本是5.3.23
+springFramework = "5.3.23"
+# spring data
+springData = "2.7.3"
+springSecurity = "5.7.3"
+
+# jolokia
+jolokiaVersion = "1.6.1"
+
+# data
+mysql = "8.0.28"
+h2 = "2.1.212"
+rocksDb = "7.2.2"
+protostuff = "1.7.4"
+parquetAvro = "1.12.3"
+hadoopClient = "3.3.2"
+socketio = "1.7.17"
+
+# reflection
+reflection = "0.9.12"
+
+# log
+slf4j = "1.7.36"
+log4j2 = "2.17.2"
+
+# test
+junit = "5.8.2"
+mockito = "4.4.0"
+assertj = "3.9.1"
+mockk = "1.13.2"
+kotest = "5.4.2"
+
+# commons
+lombok = "1.18.24"
+guava = "31.1-jre"
+commonsIO = "2.11.0"
+commonLangs3 = "3.12.0"
+commonMath3 = "3.6.1"
+
+# proto & grpc
+grpc = "1.44.1"
+proto = "3.21.1"
+protoGradlePlugin = "0.8.18"
+grpcSpringboot = "2.13.1.RELEASE"
+
+# jackson
+jackson = "2.13.4"
+
+# javax
+javaxPersistence = "2.2"
+javaxValidation = "2.0.1.Final"
+javaxAnnotation = "1.3.2"
+# jakarta
+jakartaTransation = "1.3.3"
+jakartaPersistence = "2.2.3"
+jakartaAnnotation = "1.3.3"
+
+# Eclipse Collections
+eclipseCollections = "11.1.0"
+
+# apache
+apacheCommonsCsv = "1.9.0"
+
+# byte buddy
+# capable with https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/2.7.3
+bytebuddy = "1.12.13"
+cglib = "3.3.0"
+reflections = "0.10.2"
+
+mosek = "9.3"
+[libraries]
+beyondSDKJavaEmbed = { module = "com.betalpha:sdk-java-embed_2.13", version.ref = "barBeyond" }
+# beyond shared
+beyondSharedModel = { module = "com.betalpha:shared-core-model_2.13", version.ref = "barBeyond" }
+# beyond storage
+beyondSdkEmbed = { module = "com.betalpha:sdk-java-embed_2.13", version.ref = "barBeyond" }
+# factor
+beyondFactorApi = { module = "com.betalpha:factor-api_2.13", version.ref = "barBeyond" }
+beyondFactorModel = { module = "com.betalpha:factor-core-model_2.13", version.ref = "barBeyond" }
+beyondFactorEmbed = { module = "com.betalpha:factor-embed-api_2.13", version.ref = "barBeyond" }
+# day-seq
+beyondDaySeqApi = { module = "com.betalpha:day-seq-api_2.13", version.ref = "barBeyond" }
+beyondDaySeqEmbed = { module = "com.betalpha:day-seq-embed-api_2.13", version.ref = "barBeyond" }
+# industry
+beyondIndustryApi = { module = "com.betalpha:industry-api_2.13", version.ref = "barBeyond" }
+beyondIndustryEmbed = { module = "com.betalpha:industry-embed-api_2.13", version.ref = "barBeyond" }
+# macro
+beyondMacroApi = { module = "com.betalpha:macro-api_2.13", version.ref = "barBeyond" }
+beyondMacroEmbed = { module = "com.betalpha:macro-embed-api_2.13", version.ref = "barBeyond" }
+# portfolio
+beyondPortfolioApi = { module = "com.betalpha:portfolio-api_2.13", version.ref = "barBeyond" }
+beyondPortfolioEmbed = { module = "com.betalpha:portfolio-embed-api_2.13", version.ref = "barBeyond" }
+# risk-model
+beyondRiskModelApi = { module = "com.betalpha:risk-model-api_2.13", version.ref = "barBeyond" }
+beyondRiskModelShare = { module = "com.betalpha:risk-model-share_2.13", version.ref = "barBeyond" }
+beyondRiskModelEmbed = { module = "com.betalpha:risk-model-embed-api_2.13", version.ref = "barBeyond" }
+# sparse-data
+beyondSparseApi = { module = "com.betalpha:sparse-api_2.13", version.ref = "barBeyond" }
+beyondSparseModel = { module = "com.betalpha:sparse-core-model_2.13", version.ref = "barBeyond" }
+beyondSparseEmbed = { module = "com.betalpha:sparse-embed-api_2.13", version.ref = "barBeyond" }
+# universe
+beyondUniverseApi = { module = "com.betalpha:universe-api_2.13", version.ref = "barBeyond" }
+beyondUniverseModel = { module = "com.betalpha:universe-core-model_2.13", version.ref = "barBeyond" }
+beyondUniverseEmbed = { module = "com.betalpha:universe-embed-api_2.13", version.ref = "barBeyond" }
+
+# formula
+beyondFormula = { module = "com.betalpha:formula_2.13", version.ref = "barBeyond" }
+beyondFormulaAntlr = { module = "com.betalpha:formula-antlr_2.13", version.ref = "barBeyond" }
+beyondFormulaValidator = { module = "com.betalpha:formula-validator_2.13", version.ref = "barBeyond" }
+beyondFromulaDag = { module = "com.betalpha:formula-dag-core_2.13", version.ref = "barBeyond" }
+formulaCore = { module = "com.betalpha.formula:formula-core", version.ref = "formula" }
+formulaValidator = { module = "com.betalpha.formula:formula-validator", version.ref = "formula" }
+formulaOperator = { module = "com.betalpha.formula:formula-operator", version.ref = "formula" }
+saasFormulaVendor = { module = "com.betalpha:saas-formula-vendor_2.13", version.ref = "barBeyond" }
+formulaFramework = {module = "com.betalpha.formula:formula-framework", version.ref = "formula"}
+
+# dag
+beyondDagApi = { module = "com.betalpha:dag-api_2.13", version.ref = "barBeyond" }
+beyondDagModel = { module = "com.betalpha:dag-core-model_2.13", version.ref = "barBeyond" }
+beyondDagNodeCore = { module = "com.betalpha:dag-node-parse-core_2.13", version.ref = "barBeyond" }
+beyondDagNodeCommon = { module = "com.betalpha:dag-node-common_2.13", version.ref = "barBeyond" }
+beyondDagEmbed = { module = "com.betalpha:dag-embed-api_2.13", version.ref = "barBeyond" }
+beyondDagScheduler = { module = "com.betalpha:dag-scheduler_2.13", version.ref = "barBeyond" }
+beyondDagSchedulerStorage = { module = "com.betalpha:dag-scheduler-storage_2.13", version.ref = "barBeyond" }
+beyondDataBetaStore = { module = "com.betalpha:data-meta-store_2.13", version.ref = "barBeyond" }
+beyondDagFormula = {module="com.betalpha:formula-dag-grpc-service_2.13", version.ref= "barBeyond"}
+beyondDagBizStorage = {module = "com.betalpha:data-meta-biz_2.13", version.ref="barBeyond"}
+beyondDataMetaImport = {module= "com.betalpha:data-meta-import_2.13", version.ref = "barBeyond"}
+beyondDataMeta = {module = "com.betalpha:data-meta_2.13", version.ref = "barBeyond"}
+beyondDataMetaParse = {module="com.betalpha:data-meta-parse_2.13", version.ref= "barBeyond"}
+
+#mybatis
+beyondMyBatis = {module = "com.betalpha:mybatis-datasource_2.13", version.ref = "barBeyond"}
+
+# beyond gprc common
+beyondGprcSDKShare = { module = "com.betalpha:shared-sdk-grpc_2.13", version.ref = "barBeyond" }
+beyondGprcBindAdapter = { module = "com.betalpha:grpc-bind-adapter_2.13", version.ref = "barBeyond" }
+beyondGprcServerBase = { module = "com.betalpha:sdk-grpc-server-base_2.13", version.ref = "barBeyond" }
+# beyond gprc service
+beyondGrpcSerDaySeq = { module = "com.betalpha:day-seq-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerFactor = { module = "com.betalpha:factor-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerIndustry = { module = "com.betalpha:industry-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerMacro = { module = "com.betalpha:macro-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerPortfolio = { module = "com.betalpha:portfolio-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerRiskModel = { module = "com.betalpha:risk-model-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerSparse = { module = "com.betalpha:sparse-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerUniverse = { module = "com.betalpha:universe-grpc-service_2.13", version.ref = "barBeyond" }
+beyondUniverseGprcShare = { module = "com.betalpha:universe-grpc-share_2.13", version.ref = "barBeyond" }
+beyondGrpcSerDag = { module = "com.betalpha:dag-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerFormula = { module = "com.betalpha:formula-grpc-service_2.13", version.ref = "barBeyond" }
+beyondGrpcSerData = {module="com.betalpha:data-meta-biz_2.13", version.ref="barBeyond"}
+# beyond grpc client
+beyondSDKGrpcClient = { module = "com.betalpha:sdk-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliDaySeq = { module = "com.betalpha:day-seq-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliFactor = { module = "com.betalpha:factor-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliIndustry = { module = "com.betalpha:industry-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliMacro = { module = "com.betalpha:macro-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliPortfolio = { module = "com.betalpha:portfolio-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliRiskModel = { module = "com.betalpha:risk-model-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliSparse = { module = "com.betalpha:sparse-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliUniverse = { module = "com.betalpha:universe-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliDag = { module = "com.betalpha:dag-grpc-client_2.13", version.ref = "barBeyond" }
+beyondGrpcCliDataMeta = {module = "com.betalpha:data-meta-grpc-client_2.13", version.ref="barBeyond"}
+
+# akka
+akkaActorTyped = { module = "com.typesafe.akka:akka-actor-typed_2.13", version.ref = "akka" }
+akkaStream = { module = "com.typesafe.akka:akka-stream_2.13", version.ref = "akka" }
+
+reactiveStreams = { module = "org.reactivestreams:reactive-streams", version.ref = "reactiveStreams" }
+reactorCore = { module = "io.projectreactor:reactor-core", version.ref = "reactorCore" }
+
+# proto & grpc
+grpcProto = { module = "io.grpc:grpc-protobuf", version.ref = "grpc" }
+grpcStub = { module = "io.grpc:grpc-stub", version.ref = "grpc" }
+grpcNetty = { module = "io.grpc:grpc-netty-shaded", version.ref = "grpc" }
+protoUtil = { module = "com.google.protobuf:protobuf-java-util", version.ref = "proto" }
+protoJava = { module = "com.google.protobuf:protobuf-java", version.ref = "proto" }
+
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+
+mysqlDriver = { module = "mysql:mysql-connector-java", version.ref = "mysql" }
+rocksDb = { module = "org.rocksdb:rocksdbjni", version.ref = "rocksDb" }
+protostuff = { module = "io.protostuff:protostuff-core", version.ref = "protostuff" }
+protostuffRuntime = { module = "io.protostuff:protostuff-runtime", version.ref = "protostuff" }
+
+# springboot
+springboot = { module = "org.springframework.boot:spring-boot", version.ref = "springboot" }
+springbootStarter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
+springbootAutoConfiguration = { module = "org.springframework.boot:spring-boot-autoconfigure", version.ref = "springboot" }
+springbootLog4j2 = { module = "org.springframework.boot:spring-boot-starter-log4j2", version.ref = "springboot" }
+springbootDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springboot" }
+springbootJdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc", version.ref = "springboot" }
+springbootWeb = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
+springbootActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+springbootDependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springboot" }
+springbootSecurity = { module = "org.springframework.boot:spring-boot-starter-security" }
+springboot-security-oauth2-resourceserver = { module = "org.springframework.boot:spring-boot-starter-oauth2-resource-server" }
+springboot-processer = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springboot" }
+# spring framework
+# spring context
+springContext = { module = "org.springframework:spring-context", version.ref = "springFramework" }
+springCore = { module = "org.springframework:spring-core", version.ref = "springFramework" }
+springAop = { module = "org.springframework:spring-aop", version.ref = "springFramework" }
+springBeans = { module = "org.springframework:spring-beans", version.ref = "springFramework" }
+springExpression = { module = "org.springframework:spring-expression", version.ref = "springFramework" }
+# spring jdbc
+springJdbc = { module = "org.springframework:spring-jdbc", version.ref = "springFramework" }
+springDataJpa = { module = "org.springframework.data:spring-data-jpa", version.ref = "springData" }
+# spring security
+springSecurityCore = {module = "org.springframework.security:spring-security-core", version.ref = "springSecurity"}
+
+# jolokia
+jolokiaCore = { module = "org.jolokia:jolokia-core", version.ref = "jolokiaVersion" }
+
+# test
+springbootTest = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
+junitApi = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junitEngine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+junitJupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+reactorTest = { module = "io.projectreactor:reactor-test", version.ref = "reactorTest" }
+mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+
+# scala
+scalaLibrary = { module = "org.scala-lang:scala-library", version.ref = "scalaLibrary" }
+
+# javax
+javaxPersistence = { module = "javax.persistence:javax.persistence-api", version.ref = "javaxPersistence" }
+javaxValidation = { module = "javax.validation:validation-api", version.ref = "javaxValidation" }
+javaxAnnotation = { module = "javax.annotation:javax.annotation-api", version.ref = "javaxAnnotation" }
+# jakarta
+jakartaTransation = { module = "jakarta.transaction:jakarta.transaction-api", version.ref = "jakartaTransation" }
+jakartaPersistence = { module = "jakarta.persistence:jakarta.persistence-api", version.ref = "jakartaPersistence" }
+jakartaAnnotation = { module = "jakarta.annotation:jakarta.annotation-api", version.ref = "jakartaAnnotation" }
+
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+
+eclipse-collections-api = { module = "org.eclipse.collections:eclipse-collections-api", version.ref = "eclipseCollections" }
+eclipse-collections-impl = { module = "org.eclipse.collections:eclipse-collections", version.ref = "eclipseCollections" }
+
+grpcSpringboot = { module = "net.devh:grpc-server-spring-boot-starter", version.ref = "grpcSpringboot" }
+
+commonsIO = { module = "commons-io:commons-io", version.ref = "commonsIO" }
+commonLangs3 = { module = "org.apache.commons:commons-lang3", version.ref = "commonLangs3" }
+commonMath3 = { module = "org.apache.commons:commons-math3", version.ref = "commonMath3" }
+assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+
+mosek = { module = "mosek:mosek", version.ref = "mosek" }
+# apache
+apacheCommonsCsv = { module = "org.apache.commons:commons-csv", version.ref = "apacheCommonsCsv" }
+
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+kotest = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotlinxCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx_plugin" }
+kotlinxCoroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx_plugin" }
+
+# jackson
+jacksonDatabind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jacksonCore = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
+jacksonDatatypeJsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+jacksonDatatypeJdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson" }
+
+bytebuddy = { module = "net.bytebuddy:byte-buddy", version.ref = "bytebuddy" }
+bytebuddyAgent = { module = "net.bytebuddy:byte-buddy-agent", version.ref = "bytebuddy" }
+cglib = { module = "cglib:cglib", version.ref = "cglib" }
+reflections = { module = "org.reflections:reflections", version.ref = "reflections" }
+
+[bundles]
+appSpringboot = ["springbootStarter", "springbootAutoConfiguration", "springbootLog4j2"]
+eclipseCollections = ["eclipse-collections-api", "eclipse-collections-impl"]
+
+[plugins]
+springboot = { id = "org.springframework.boot", version.ref = "springboot" }
+proto = { id = "com.google.protobuf", version.ref = "protoGradlePlugin" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlinAllopen = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kotlinJpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }

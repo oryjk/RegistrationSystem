@@ -1,7 +1,9 @@
 package com.wangrui.registrationsystem.grouping.domain
 
-data class GroupingResult(val competitionId: String, val eachGrouping: List<EachGrouping>)
+import com.wangrui.registrationsystem.competition.domain.CompetitionId
 
-data class EachGrouping(val competitionId: String, val groupId: Int, val groupMember: GroupMember)
+data class GroupingResult(val competitionId: CompetitionId, val eachGrouping: List<EachGrouping>)
+
+data class EachGrouping(val competitionId: CompetitionId, val groupId: Int, val groupMember: GroupMember)
 
 data class GroupMember(val participantId: List<String>)

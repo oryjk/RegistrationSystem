@@ -1,6 +1,5 @@
 package com.wangrui.registrationsystem.competition.application.port.`in`
 
-import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
 import com.wangrui.registrationsystem.competition.domain.CompetitionInfo
 
@@ -11,5 +10,5 @@ import com.wangrui.registrationsystem.competition.domain.CompetitionInfo
  */
 
 interface CompetitionInfoUseCase {
-    fun getCompetition(id: CompetitionId): CompetitionInfo
+    fun getCompetitionInfo(id: CompetitionId): CompetitionInfo
 }
