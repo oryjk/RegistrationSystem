@@ -20,12 +20,12 @@ class GroupingDao(
     val competitionInfoUseCase: CompetitionInfoUseCase
 ) : GroupingPort {
     override fun findByCompetitionId(id: CompetitionId): GroupingResult {
-        val eachGroupings = groupingRepository.findByIdCompetitionId(id).groupBy { it.id.groupingId }.map { it ->
+        val eachGroupings = groupingRepository.findByIdCompetitionId(id).groupBy { it.id?.groupingId }.map { it ->
             val groupingId = it.key
             val userIds = it.value.map {
-                it.id.userId
+                it.id?.userId!!
             }
-            EachGrouping(id, groupingId, GroupMember(userIds))
+            EachGrouping(id, groupingId!!, GroupMember(userIds))
         }
 
         return GroupingResult(id, eachGroupings)

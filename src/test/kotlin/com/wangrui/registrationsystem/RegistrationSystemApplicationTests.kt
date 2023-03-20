@@ -7,6 +7,8 @@ class RegistrationSystemApplicationTests {
 
     @Test
     fun contextLoads() {
+        val company = Company()
+        company.name
     }
 
 }
