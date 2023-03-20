@@ -30,11 +30,11 @@ spring:
     activate:
       on-profile: test
 mysql:
-  host: 192.168.0.160
-  port: 3316
+  host: localhost
+  port: 3306
   database: registration_system
   username: root
-  password: Bar888888
+  password: beifa888
 
 ---
 spring:

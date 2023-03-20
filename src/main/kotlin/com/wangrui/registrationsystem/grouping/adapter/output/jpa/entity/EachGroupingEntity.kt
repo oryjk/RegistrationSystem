@@ -9,9 +9,10 @@ import java.io.Serializable
 
 @Entity
 @Table
-open class EachGroupingEntity(@EmbeddedId val id: EachGroupingPK)
+open class EachGroupingEntity(@EmbeddedId open val id: EachGroupingPK)
 
 
 @Embeddable
-open class EachGroupingPK(val competitionId: CompetitionId, val groupingId: Int, val userId: String
+open class EachGroupingPK(
+     open val competitionId: CompetitionId, open val groupingId: Int, open val userId: String
 ) : Serializable

@@ -23,7 +23,7 @@ open class CompetitionEntity(
     private val createTime: LocalDateTime?,
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE) @Column(
         name = "id", nullable = false
-    ) val id: CompetitionId? = null,
+    ) private val id: CompetitionId? = null,
 ) {
 
 
