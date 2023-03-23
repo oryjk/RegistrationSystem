@@ -43,6 +43,18 @@
 				}
 			}
 
+		},
+		{
+			"path": "pages/input/simple_competition_form/simple_competition_form",
+			"style": {
+				"navigationBarTitleText": "简易报名表",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black",
+				"navigationBarShadow": {
+					"colorType": "blue"
+				}
+			}
+
 		}
 	],
 	"globalStyle": {
