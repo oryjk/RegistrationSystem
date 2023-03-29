@@ -11,7 +11,7 @@ import java.time.LocalDateTime
 
 class Competition(
     val id: CompetitionId?,
-    val name: String?,
+    val name: String,
     val gameType: GameType?,
     val gameDate: LocalDateTime?,
     val venue: String?,

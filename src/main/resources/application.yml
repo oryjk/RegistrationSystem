@@ -4,6 +4,9 @@ spring:
     active: test
   jmx:
     enabled: true
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss.SSS"
+    time-zone: "GMT+8"
 
 management:
   server:

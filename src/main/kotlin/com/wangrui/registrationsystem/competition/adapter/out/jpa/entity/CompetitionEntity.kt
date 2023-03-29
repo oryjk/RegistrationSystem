@@ -13,7 +13,7 @@ import java.time.LocalDateTime
 @Entity
 @Table(name = "competition")
 open class CompetitionEntity(
-    private val name: String?,
+    private val name: String,
     private val gameType: Competition.GameType?,
     private val gameDate: LocalDateTime?,
     private val venue: String?,

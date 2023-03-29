@@ -33,16 +33,27 @@
                 ]
             },
             "ios" : {},
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "maps" : {}
+            }
         }
     },
     "quickapp" : {},
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wxc61da17a97f6eb1b",
         "setting" : {
             "urlCheck" : true
         },
         "usingComponents" : true
     },
-    "vueVersion" : "2"
+    "vueVersion" : "2",
+    "h5" : {
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : "D6IBZ-HPSH3-NML3B-RGIKE-HXYW3-RXF6O"
+                }
+            }
+        }
+    }
 }

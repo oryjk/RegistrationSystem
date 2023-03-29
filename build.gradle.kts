@@ -37,6 +37,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation(libs.springbootLog4j2)
 
     implementation("com.google.guava:guava:${rootProject.libs.versions.guava.get()}")
     runtimeOnly("com.mysql:mysql-connector-j")

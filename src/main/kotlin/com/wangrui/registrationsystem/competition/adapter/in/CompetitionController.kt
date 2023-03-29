@@ -18,7 +18,7 @@ class CompetitionController(
     val competitionUseCase: CreateCompetitionUseCase
 ) {
     @PostMapping("/create")
-    fun createCompetition(competitionRequest: CompetitionRequest): CompetitionView {
+    fun createCompetition(@RequestBody competitionRequest: CompetitionRequest): CompetitionView {
         val competition = competitionUseCase.createCompetition(competitionRequest.toCompetition())
         return CompetitionView.toCompetitionView(competition)
     }
@@ -39,9 +39,13 @@ class CompetitionController(
         val applicantsLimit: Int?
     ) {
         fun toCompetition(): Competition {
+            if(name==null){
+                throw IllegalArgumentException("比赛名称不能为空")
+            }
+
             return Competition(
                 null,
-                name,
+                name!!,
                 gameType,
                 gameDate,
                 venue,
