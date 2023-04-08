@@ -1,23 +1,16 @@
 <template>
-	<view class="content">
-		<view class="">
-			<uni-forms ref="form" label-position="left" label-width="80px">
-				<uni-easyinput type="text" v-model="formData.name" placeholder="请输入活动名称" />
-				<view class="">
-				<uni-forms-item label="活动介绍" name="description" />
-				<uni-easyinput type="text" v-model="formData.description" placeholder="请输入活动描述信息" />	
-				</view>
-				
-				<uni-section :title="'报名截止时间:'+formData.single" sub-title="" type="line"></uni-section>
-				<view class="">
-					<uni-datetime-picker type="date" :clear-icon="false" v-model="formData.single"
-						@maskClick="maskClick" @change="changeLog" />
+	<view class="container">
+		<uni-section title="最近接龙" type="line" padding>
+			<scroll-view v-for="(competition, index) in list" :key="index">
+				<view class="tag-view">
+					{{competition.name}}
+					{{competition.gameDate}}
+					{{competition.venue}}
+					{{competition.competitionStatement}}
 				</view>
 
-			</uni-forms>
-		</view>
-
-
+			</scroll-view>
+		</uni-section>
 	</view>
 </template>
 
@@ -25,22 +18,31 @@
 	export default {
 		data() {
 			return {
-				formData: {
-					name: '',
-					email: 'dcloud@email.com',
-					description: '',
-					single: '',
-				}
+				
+				list: ['暂时没有任何接龙']
 
 			};
 		},
-		onLoad() {},
-		methods: {}
+		onLoad() {
+			let that=this
+			uni.request({
+				url: "http://localhost:8080/api/competition/all",
+				method: 'GET',
+				success: (res) => {
+					console.log(res.data)
+					that.list=res.data
+				}
+			
+			})
+		},
+		methods: {
+			
+		}
 	};
 </script>
 
 <style>
-	.content {
+	.container {
 		/* text-align: center; */
 		/* height: 400upx; */
 		/* margin-top: 200upx; */

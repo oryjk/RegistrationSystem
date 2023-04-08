@@ -36,4 +36,8 @@ class CompetitionInfoService(
     override fun getCompetition(id: CompetitionId): Competition {
         return competitionReaderPort.getCompetition(id)
     }
+
+    override fun getAllCompetition(): List<Competition> {
+        return competitionReaderPort.getAllCompetition()
+    }
 }

@@ -14,9 +14,13 @@ import java.lang.IllegalArgumentException
  */
 
 @Service
-class CompetitionReaderAdapter(val repository: CompetitionRepository): CompetitionReaderPort {
+class CompetitionReaderAdapter(val repository: CompetitionRepository) : CompetitionReaderPort {
     override fun getCompetition(competitionId: CompetitionId): Competition {
-        return repository.findById(competitionId).orElseThrow { IllegalArgumentException("无法找到id为 $competitionId 的比赛信息") }
-            .toCompetition()
+        return repository.findById(competitionId)
+            .orElseThrow { IllegalArgumentException("无法找到id为 $competitionId 的比赛信息") }.toCompetition()
+    }
+
+    override fun getAllCompetition(): List<Competition> {
+        return repository.findAll().map { it.toCompetition() }
     }
 }

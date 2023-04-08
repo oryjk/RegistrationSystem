@@ -12,4 +12,6 @@ import com.wangrui.registrationsystem.competition.domain.CompetitionId
 interface CreateCompetitionUseCase {
     fun createCompetition(competition: Competition): Competition
     fun getCompetition(id: CompetitionId): Competition
+
+    fun getAllCompetition():List<Competition>
 }

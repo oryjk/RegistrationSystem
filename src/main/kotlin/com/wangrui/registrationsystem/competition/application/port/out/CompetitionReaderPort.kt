@@ -11,4 +11,5 @@ import com.wangrui.registrationsystem.competition.domain.CompetitionId
 
 interface CompetitionReaderPort {
     fun getCompetition(competitionId: CompetitionId): Competition
+    fun getAllCompetition(): List<Competition>
 }

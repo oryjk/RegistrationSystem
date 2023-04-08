@@ -29,6 +29,12 @@ class CompetitionController(
         return CompetitionView.toCompetitionView(competition)
     }
 
+    @GetMapping("/all")
+    fun getAllCompetition(): List<CompetitionView> {
+        val competitions = competitionUseCase.getAllCompetition()
+        return competitions.map { CompetitionView.toCompetitionView(it) }
+    }
+
     data class CompetitionRequest(
         val name: String?,
         val gameType: Competition.GameType?,
@@ -39,7 +45,7 @@ class CompetitionController(
         val applicantsLimit: Int?
     ) {
         fun toCompetition(): Competition {
-            if(name==null){
+            if (name == null) {
                 throw IllegalArgumentException("比赛名称不能为空")
             }
 
