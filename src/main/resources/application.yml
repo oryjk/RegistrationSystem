@@ -23,7 +23,7 @@ management:
 server:
   error:
     include-message: always
-#  port: 5678
+  port: 5678
 #grpc:
 #  server:
 #    port: 9099
