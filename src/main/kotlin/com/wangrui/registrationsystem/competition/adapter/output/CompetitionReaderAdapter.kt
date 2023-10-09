@@ -1,7 +1,7 @@
-package com.wangrui.registrationsystem.competition.adapter.out
+package com.wangrui.registrationsystem.competition.adapter.output
 
-import com.wangrui.registrationsystem.competition.adapter.out.jpa.repository.CompetitionRepository
-import com.wangrui.registrationsystem.competition.application.port.out.CompetitionReaderPort
+import com.wangrui.registrationsystem.competition.adapter.output.jpa.repository.CompetitionRepository
+import com.wangrui.registrationsystem.competition.application.port.output.CompetitionReaderPort
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
 import org.springframework.stereotype.Service

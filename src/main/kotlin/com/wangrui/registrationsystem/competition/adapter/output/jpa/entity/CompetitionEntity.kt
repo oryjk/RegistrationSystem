@@ -1,4 +1,4 @@
-package com.wangrui.registrationsystem.competition.adapter.out.jpa.entity
+package com.wangrui.registrationsystem.competition.adapter.output.jpa.entity
 
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId

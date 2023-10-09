@@ -1,8 +1,8 @@
 package com.wangrui.registrationsystem.grouping.application.service
 
 import com.google.common.collect.Lists
-import com.wangrui.registrationsystem.competition.application.port.`in`.CompetitionInfoUseCase
-import com.wangrui.registrationsystem.competition.application.port.`in`.CreateCompetitionUseCase
+import com.wangrui.registrationsystem.competition.application.port.input.CompetitionInfoUseCase
+import com.wangrui.registrationsystem.competition.application.port.input.CreateCompetitionUseCase
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
 import com.wangrui.registrationsystem.grouping.adapter.output.jpa.entity.EachGroupingEntity
 import com.wangrui.registrationsystem.grouping.adapter.output.jpa.entity.EachGroupingPK

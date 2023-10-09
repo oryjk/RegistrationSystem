@@ -1,6 +1,6 @@
-package com.wangrui.registrationsystem.competition.adapter.`in`
+package com.wangrui.registrationsystem.competition.adapter.input.controller
 
-import com.wangrui.registrationsystem.competition.application.port.`in`.CreateCompetitionUseCase
+import com.wangrui.registrationsystem.competition.application.port.input.CreateCompetitionUseCase
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
 import org.springframework.web.bind.annotation.*

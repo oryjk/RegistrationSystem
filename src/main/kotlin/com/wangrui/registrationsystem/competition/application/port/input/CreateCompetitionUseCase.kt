@@ -1,4 +1,4 @@
-package com.wangrui.registrationsystem.competition.application.port.`in`
+package com.wangrui.registrationsystem.competition.application.port.input
 
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
