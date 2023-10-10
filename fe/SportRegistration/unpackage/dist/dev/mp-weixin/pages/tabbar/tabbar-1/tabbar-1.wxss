@@ -1,0 +1,9 @@
+
+.content {
+	/* text-align: center; */
+	/* height: 400upx; */
+	/* margin-top: 200upx; */
+	background-color: #fff;
+	padding: 10px;
+}
+

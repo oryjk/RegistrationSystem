@@ -1,10 +1,10 @@
 package com.wangrui.registrationsystem.competition.application.service
 
-import com.wangrui.registrationsystem.competition.application.port.`in`.CompetitionInfoUseCase
-import com.wangrui.registrationsystem.competition.application.port.`in`.CreateCompetitionUseCase
-import com.wangrui.registrationsystem.competition.application.port.out.CompetitionReaderPort
-import com.wangrui.registrationsystem.competition.application.port.out.CompetitionWritePort
-import com.wangrui.registrationsystem.competition.application.port.out.RegistrationCompetitionInfoPort
+import com.wangrui.registrationsystem.competition.application.port.input.CompetitionInfoUseCase
+import com.wangrui.registrationsystem.competition.application.port.input.CreateCompetitionUseCase
+import com.wangrui.registrationsystem.competition.application.port.output.CompetitionReaderPort
+import com.wangrui.registrationsystem.competition.application.port.output.CompetitionWritePort
+import com.wangrui.registrationsystem.competition.application.port.output.RegistrationCompetitionInfoPort
 import com.wangrui.registrationsystem.competition.domain.Competition
 import com.wangrui.registrationsystem.competition.domain.CompetitionId
 import com.wangrui.registrationsystem.competition.domain.CompetitionInfo
