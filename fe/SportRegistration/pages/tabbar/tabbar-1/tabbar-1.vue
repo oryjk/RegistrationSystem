@@ -1,7 +1,5 @@
 <template>
 	<view class="container">
-		<u--text text="我用十年青春,赴你最后之约"></u--text>
-
 		<uni-section title="最近接龙" type="line" padding>
 			<view v-for="(competition, index) in list" :key="index" class="uni-flex uni-column">
 				<view class="uni-flex uni-row">

@@ -1,7 +1,8 @@
 package com.wangrui.registrationsystem
 
+import kotlinx.coroutines.*
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
+import java.util.concurrent.TimeUnit
 
 class RegistrationSystemApplicationTests {
 
@@ -58,6 +59,50 @@ class RegistrationSystemApplicationTests {
         }
         foo1()
 
+    }
+
+
+    @Test
+    fun coroutines_test() = runBlocking {
+        val start = System.currentTimeMillis()
+        coroutineScope {                                // Create a scope for starting coroutines
+            for (i in 1..10) {
+                launch {                                // Start 10 concurrent tasks
+                    delay(3000L - i * 300)              // Pause their execution
+                    log(start, "Countdown: $i")
+                }
+            }
+        }
+        // Execution continues when all coroutines in the scope have finished
+        log(start, "Liftoff!")
+    }
+
+    fun log(start: Long, msg: String) {
+        println(
+            "$msg " +
+                    "(on ${Thread.currentThread().name}) " +
+                    "after ${(System.currentTimeMillis() - start) / 1000F}s"
+        )
+    }
+
+    @Test
+    fun suspend_test() {
+        GlobalScope.launch {
+            val result = fetchData()
+            println(result)
+        }
+        println("main thread ${Thread.currentThread().name}")
+        println("Outter")
+
+        // 阻止主线程退出，等待协程执行
+        Thread.sleep(2000)
+    }
+
+    fun fetchData(): String {
+//        delay(1000) // 模拟网络请求的延迟
+        TimeUnit.SECONDS.sleep(1)
+        println("fetchData thread ${Thread.currentThread().name}")
+        return "Data fetched"
     }
 
 }
