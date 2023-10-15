@@ -1,5 +1,6 @@
 package com.wangrui.registrationsystem.activity.adapter.input.request
 
+import com.wangrui.registrationsystem.activity.domain.Activity
 import java.time.LocalDateTime
 
 /**
@@ -12,4 +13,10 @@ data class ActivityRequest(
     val name: String,
     val startTime: LocalDateTime,
     val endTime: LocalDateTime
-)
+) {
+    companion object {
+        fun toActivity(id: String, activityRequest: ActivityRequest): Activity {
+            return Activity(id, activityRequest.name, activityRequest.startTime, activityRequest.endTime)
+        }
+    }
+}
