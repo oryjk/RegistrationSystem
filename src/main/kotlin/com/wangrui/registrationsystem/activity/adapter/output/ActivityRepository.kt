@@ -2,6 +2,9 @@ package com.wangrui.registrationsystem.activity.adapter.output
 
 import com.wangrui.registrationsystem.activity.application.port.output.ActivityDao
 import com.wangrui.registrationsystem.activity.domain.Activity
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import jakarta.persistence.Table
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 import java.time.LocalDateTime
@@ -26,8 +29,10 @@ interface ActivityRepository : ActivityDao, JpaRepository<ActivityEntity, String
     }
 }
 
+@Table(name = "rs_activity")
+@Entity
 data class ActivityEntity(
-    val id: String, val name: String, val startTime: LocalDateTime, val endTime: LocalDateTime
+    @Id val id: String, val name: String, val startTime: LocalDateTime, val endTime: LocalDateTime
 ) {
     companion object {
         fun toActivityEntity(activity: Activity): ActivityEntity {
@@ -38,4 +43,6 @@ data class ActivityEntity(
             return Activity(activity.id, activity.name, activity.startTime, activity.endTime)
         }
     }
+
+
 }

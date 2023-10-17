@@ -1,5 +1,6 @@
 package com.wangrui.registrationsystem.activity.adapter.input.request
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import com.wangrui.registrationsystem.activity.domain.Activity
 import java.time.LocalDateTime
 
@@ -11,8 +12,8 @@ import java.time.LocalDateTime
 
 data class ActivityRequest(
     val name: String,
-    val startTime: LocalDateTime,
-    val endTime: LocalDateTime
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm") val startTime: LocalDateTime,
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm") val endTime: LocalDateTime
 ) {
     companion object {
         fun toActivity(id: String, activityRequest: ActivityRequest): Activity {
