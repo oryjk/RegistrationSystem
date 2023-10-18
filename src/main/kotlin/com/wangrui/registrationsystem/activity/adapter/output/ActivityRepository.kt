@@ -2,6 +2,7 @@ package com.wangrui.registrationsystem.activity.adapter.output
 
 import com.wangrui.registrationsystem.activity.application.port.output.ActivityDao
 import com.wangrui.registrationsystem.activity.domain.Activity
+import com.wangrui.registrationsystem.activity.domain.Status
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
@@ -32,15 +33,37 @@ interface ActivityRepository : ActivityDao, JpaRepository<ActivityEntity, String
 @Table(name = "rs_activity")
 @Entity
 data class ActivityEntity(
-    @Id val id: String, val name: String, val startTime: LocalDateTime, val endTime: LocalDateTime
+    @Id val id: String,
+    val name: String,
+    val startTime: LocalDateTime,
+    val endTime: LocalDateTime,
+    val cover: String,
+    val status: Int,
+    val location: String,
 ) {
     companion object {
         fun toActivityEntity(activity: Activity): ActivityEntity {
-            return ActivityEntity(activity.id, activity.name, activity.startTime, activity.endTime)
+            return ActivityEntity(
+                activity.id,
+                activity.name,
+                activity.startTime,
+                activity.endTime,
+                activity.cover,
+                activity.status.intValue,
+                activity.location
+            )
         }
 
         fun toActivity(activity: ActivityEntity): Activity {
-            return Activity(activity.id, activity.name, activity.startTime, activity.endTime)
+            return Activity(
+                activity.id,
+                activity.name,
+                activity.startTime,
+                activity.endTime,
+                activity.cover,
+                Status.toStatus(activity.status),
+                activity.location
+            )
         }
     }
 

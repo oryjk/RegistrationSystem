@@ -2,6 +2,7 @@ package com.wangrui.registrationsystem.activity.adapter.input.request
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.wangrui.registrationsystem.activity.domain.Activity
+import com.wangrui.registrationsystem.activity.domain.Status
 import java.time.LocalDateTime
 
 /**
@@ -13,11 +14,21 @@ import java.time.LocalDateTime
 data class ActivityRequest(
     val name: String,
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm") val startTime: LocalDateTime,
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm") val endTime: LocalDateTime
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm") val endTime: LocalDateTime,
+    val cover: String="",
+    val location: String="",
 ) {
     companion object {
         fun toActivity(id: String, activityRequest: ActivityRequest): Activity {
-            return Activity(id, activityRequest.name, activityRequest.startTime, activityRequest.endTime)
+            return Activity(
+                id,
+                activityRequest.name,
+                activityRequest.startTime,
+                activityRequest.endTime,
+                activityRequest.cover,
+                Status.NOT_STARTED,
+                activityRequest.location
+            )
         }
     }
 }

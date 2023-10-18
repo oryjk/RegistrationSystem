@@ -40,12 +40,12 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
     implementation(libs.springbootLog4j2)
-    implementation("mysql:mysql-connector-java:8.0.33")
-
-    implementation("com.google.guava:guava:${rootProject.libs.versions.guava.get()}")
-    runtimeOnly("com.mysql:mysql-connector-j")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation(kotlin("stdlib-jdk8"))
+    implementation("com.google.guava:guava:${rootProject.libs.versions.guava.get()}")
+
+//    runtimeOnly("com.mysql:mysql-connector-j")
+    implementation("com.mysql:mysql-connector-j")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<KotlinCompile> {
