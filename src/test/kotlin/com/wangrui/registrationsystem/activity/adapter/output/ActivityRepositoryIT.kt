@@ -20,7 +20,7 @@ import java.time.LocalDateTime
 @ExtendWith(SpringExtension::class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class ActivityRepositoryIntegrationTest(@Autowired var activityRepository: ActivityRepository) {
+class ActivityRepositoryIT(@Autowired var activityRepository: ActivityRepository) {
     @Test
     fun saveActivity_test() {
         activityRepository.saveActivity(

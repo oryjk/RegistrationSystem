@@ -1,4 +1,4 @@
-package com.wangrui.registrationsystem.activity.adapter.input
+package com.wangrui.registrationsystem.activity.adapter.input.rest
 
 import com.wangrui.registrationsystem.activity.adapter.input.request.ActivityRequest
 import com.wangrui.registrationsystem.activity.application.port.input.ActivityUseCase

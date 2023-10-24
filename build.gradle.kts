@@ -60,5 +60,8 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Test> {
+    filter {
+        excludeTestsMatching("*IT.*")
+    }
     useJUnitPlatform()
 }

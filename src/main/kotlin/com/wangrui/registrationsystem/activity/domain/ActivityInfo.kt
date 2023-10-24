@@ -17,7 +17,8 @@ data class ActivityInfo(
 
 enum class ActivityInfoType(val intValue: Int) {
 
-    CLUB(0), INDIVIDUAL(1);
+    CLUB(0),//俱乐部性质
+    INDIVIDUAL(1);//个人性质
 
     companion object {
 

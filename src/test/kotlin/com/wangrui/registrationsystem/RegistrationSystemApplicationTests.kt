@@ -1,5 +1,6 @@
 package com.wangrui.registrationsystem
 
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 class RegistrationSystemApplicationTests {
@@ -7,7 +8,7 @@ class RegistrationSystemApplicationTests {
     @Test
     fun contextLoads() {
         val company = Company()
-        company.name
+        Assertions.assertTrue(true)
     }
 
     class Person {

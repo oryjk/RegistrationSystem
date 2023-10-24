@@ -4,7 +4,6 @@ import com.wangrui.registrationsystem.activity.domain.Activity
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.time.LocalDateTime
@@ -18,7 +17,7 @@ import java.time.LocalDateTime
 @ExtendWith(SpringExtension::class)
 //@DataJpaTest 不能同时标记，因为都使用了BootstrapWith，这个一个类只能有一个这样的申明
 @SpringBootTest
-class ActivityServiceTest {
+class ActivityServiceIT {
     @Autowired
     private lateinit var ac: ActivityService
 
