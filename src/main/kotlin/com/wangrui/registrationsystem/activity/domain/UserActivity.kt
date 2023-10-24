@@ -7,10 +7,10 @@ data class UserActivity(
     val paid: Boolean
 )
 
-enum class Stand {
-    NOT_PARTICIPATE,
-    PARTICIPATE,
-    PENDING;
+enum class Stand(val intValue: Int) {
+    NOT_PARTICIPATE(0),
+    PARTICIPATE(1),
+    PENDING(2);
 
     companion object {
         fun toStand(value: Int): Stand {
