@@ -9,4 +9,9 @@ class UserActivityDaoImpl(val userActivityRepository: UserActivityRepository) : 
     override fun save(userActivity: UserActivity) {
         userActivityRepository.save(UserActivityEntity.toUserActivityEntity(userActivity))
     }
+
+    override fun findActivityByUserId(userId: String): List<UserActivity> {
+        val userActivityEntities: List<UserActivityEntity> = userActivityRepository.findByIdUserId(userId)
+        return userActivityEntities.map { UserActivityEntity.toUserActivity(it) }
+    }
 }

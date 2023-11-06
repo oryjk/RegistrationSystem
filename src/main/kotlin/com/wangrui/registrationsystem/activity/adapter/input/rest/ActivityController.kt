@@ -6,6 +6,9 @@ import com.wangrui.registrationsystem.activity.domain.Activity
 import com.wangrui.registrationsystem.common.slf4j
 import org.slf4j.Logger
 import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Flux
+import reactor.core.publisher.ParallelFlux
+import reactor.core.scheduler.Schedulers
 import java.time.LocalDateTime
 import java.util.*
 
@@ -19,7 +22,9 @@ import java.util.*
 @RequestMapping("/api/activity")
 class ActivityController(val activityUseCase: ActivityUseCase) {
 
-    private val log: Logger = slf4j()
+    companion object {
+        private val log: Logger = slf4j()
+    }
 
     @PostMapping("/publish")
     fun publishActivity(@RequestBody activityRequest: ActivityRequest): ActivityView {
@@ -31,10 +36,19 @@ class ActivityController(val activityUseCase: ActivityUseCase) {
 
     @GetMapping("/id")
     fun queryActivityById(@RequestParam id: String): ActivityView {
-        val activity = activityUseCase.queryById(id)
+        val activity = activityUseCase.findById(id)
         val result = activity.map { ActivityView.toActivityView(it) }.orElse(ActivityView.NAN())
         log.info("create activity with id ${result.id}")
         return result
+    }
+
+    @GetMapping("/all")
+    fun queryAll(): ParallelFlux<ActivityView> {
+        val result = activityUseCase.findAll()
+        return result.parallel().runOn(Schedulers.parallel()).map {
+            log.info("Thread id ${Thread.currentThread().id}, logger hashcode ${log.hashCode()} ")
+                ActivityView.toActivityView(it)
+            }
     }
 
     data class ActivityView(

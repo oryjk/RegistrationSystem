@@ -1,6 +1,8 @@
 package com.wangrui.registrationsystem.activity.application.port.output
 
 import com.wangrui.registrationsystem.activity.domain.Activity
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 import java.util.Optional
 
 /**
@@ -13,4 +15,5 @@ interface ActivityDao {
     fun saveActivity(activity: Activity): Activity
 
     fun queryById(id: String): Optional<Activity>
+    fun queryAll(): List<Activity>
 }

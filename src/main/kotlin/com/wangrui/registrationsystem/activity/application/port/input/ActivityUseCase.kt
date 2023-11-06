@@ -1,6 +1,7 @@
 package com.wangrui.registrationsystem.activity.application.port.input
 
 import com.wangrui.registrationsystem.activity.domain.Activity
+import reactor.core.publisher.Flux
 import java.util.*
 
 /**
@@ -11,5 +12,7 @@ import java.util.*
 
 interface ActivityUseCase {
     fun publish(activity: Activity): Activity
-    fun queryById(id: String): Optional<Activity>
+    fun findById(id: String): Optional<Activity>
+
+    fun findAll(): Flux<Activity>
 }

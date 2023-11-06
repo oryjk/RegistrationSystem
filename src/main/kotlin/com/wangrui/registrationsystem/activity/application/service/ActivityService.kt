@@ -6,6 +6,7 @@ import com.wangrui.registrationsystem.activity.domain.Activity
 import com.wangrui.registrationsystem.common.slf4j
 import org.slf4j.Logger
 import org.springframework.stereotype.Service
+import reactor.core.publisher.Flux
 import java.util.*
 
 /**
@@ -22,8 +23,14 @@ class ActivityService(val activityDao: ActivityDao) : ActivityUseCase {
         return activityDao.saveActivity(activity)
     }
 
-    override fun queryById(id: String): Optional<Activity> {
+    override fun findById(id: String): Optional<Activity> {
         log.info("queryById activity with id $id")
         return activityDao.queryById(id)
+    }
+
+    override fun findAll(): Flux<Activity> {
+
+        val result = activityDao.queryAll()
+        return Flux.fromIterable(result)
     }
 }

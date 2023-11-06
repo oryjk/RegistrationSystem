@@ -3,11 +3,14 @@ package com.wangrui.registrationsystem.activity.adapter.output
 import com.wangrui.registrationsystem.activity.application.port.output.ActivityDao
 import com.wangrui.registrationsystem.activity.domain.Activity
 import com.wangrui.registrationsystem.activity.domain.Status
+import com.wangrui.registrationsystem.common.slf4j
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import org.slf4j.Logger
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
+import reactor.core.publisher.Flux
 import java.time.LocalDateTime
 import java.util.*
 
@@ -19,6 +22,10 @@ import java.util.*
 
 @Repository
 interface ActivityRepository : ActivityDao, JpaRepository<ActivityEntity, String> {
+    companion object {
+        private val log: Logger = slf4j()
+    }
+
     override fun saveActivity(activity: Activity): Activity {
         val activityEntity = save(ActivityEntity.toActivityEntity(activity))
         return ActivityEntity.toActivity(activityEntity)
@@ -27,6 +34,11 @@ interface ActivityRepository : ActivityDao, JpaRepository<ActivityEntity, String
     override fun queryById(id: String): Optional<Activity> {
         val entityOptional = findById(id)
         return entityOptional.map { ActivityEntity.toActivity(it) }
+    }
+
+    override fun queryAll(): List<Activity>{
+        val result = findAll()
+        return result.map { ActivityEntity.toActivity(it) }
     }
 }
 
