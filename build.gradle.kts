@@ -23,13 +23,13 @@ allOpen {
 
 repositories {
     maven {
-        url = uri("https://developer.huawei.com/repo/")
-    }
-    maven {
         url = uri("https://maven.aliyun.com/repository/central")
     }
-    mavenLocal()
-    mavenCentral()
+    maven {
+        url = uri("https://developer.huawei.com/repo/")
+    }
+//    mavenLocal()
+//    mavenCentral()
 }
 
 

@@ -3,8 +3,17 @@ pluginManagement {
     println("Use plugin repository $repositoryUrl")
     repositories {
         maven {
+            url = uri("https://maven.aliyun.com/nexus/content/groups/public")
+        }
+        maven {
             url = uri(repositoryUrl)
+        }
+        maven {
+            url = uri("https://maven.aliyun.com/nexus/content/repositories/google")
+        }
 
+        maven {
+            url = uri("https://maven.aliyun.com/nexus/content/repositories/jcenter")
         }
         maven {
             url = uri("https://jfrog.betalpha.com/artifactory/plugins-release/")
@@ -14,8 +23,8 @@ pluginManagement {
             }
         }
 
-        mavenCentral()
-        mavenLocal()
+//        mavenCentral()
+//        mavenLocal()
     }
 }
 
