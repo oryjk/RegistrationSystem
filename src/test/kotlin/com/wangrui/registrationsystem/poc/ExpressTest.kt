@@ -33,4 +33,16 @@ class ExpressTest {
         val resu = if (y < 10) 10 else 100
         Assertions.assertEquals(100, resu)
     }
+
+    @Test
+    fun infix_test(){
+        class Person{
+             infix fun called(name:String){
+                println("My name is $name")
+            }
+        }
+
+        val person = Person()
+        person called "hello"
+    }
 }

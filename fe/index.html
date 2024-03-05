@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p :style="{ color: 'red', fontSize: '50px',margin:0 }">成都蓉城主场剩余散票实时信息</p>
+    <img src="./SportRegistration/static/img/fenghuangshan.png" style="width: 900px; height: 400px;"/>
+    <p></p>
+    <span :style="{ color: 'red', fontSize: '40px' }">{{homeName}}</span>
+    <span :style="{ color: 'black', fontSize: '40px' }"> VS </span>
+    <span :style="{ color: 'green', fontSize: '40px' }">{{awayName}}</span>
+    <p></p>
+    <span :style="{ color: 'red', fontSize: '30px' }">比赛时间：</span><span :style="{ color: 'red', fontSize: '30px' }">{{date}} {{hour}} : {{minute}}</span>
+
+    <p :style="{ color: 'red', fontSize: '50px',margin : 0 }">(本直播间不抢票，不抢票哈！！！）</p>
+    <p :style="{ color: 'red', fontSize: '20px',margin:0 }">
+        (本直播间主要是为了解放大家的双手，让大家不用费劲的一直刷小程序看是否有票，本直播间实时展示余票信息</p>
+    <p :style="{ color: 'red', fontSize: '20px' ,margin:0}">有没有票，进直播间看页面上的信息就行。 <span
+            style="text-decoration: underline;">可以加关注，亮灯牌，方便下一场不迷路</span>)
+    </p>
+    <p :style="{ color: 'red', fontSize: '50px',margin:0 }">当前时间：{{currentTime}}</p>
+
+    <div>
+        <div class="div-left">
+            <button @click="sending">开始获取最新信息</button>
+            <button @click="stopSending">停止获取最新信息</button>
+            <span>已获取信息 {{sendCount}} 次</span>
+            <span>有票出现 {{ticketCount}} 次</span>
+            <span>当前还有余票: {{ inventory }}</span>
+            <ul>
+                <li v-for="item in myList" :key="generateRandomKey()" :style="{color:'green',fontSize: '20px'}">
+
+                    <template v-if="item.inventory == 0">
+                        {{item.date}} 操作，仓库还有 {{ item.inventory }} 张，再等等~~~
+                    </template>
+                    <template v-if="item.inventory > 0">
+                        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! {{item.date}} 操作，获得 {{ item.inventory }} 张~~~
+                        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    </template>
+                </li>
+            </ul>
+        </div>
+
+        <div class="div-right">余票出现的记录=====================>>>>>>>>>>>>>
+            <ul>
+                <li v-for="item in ticketList" :key="generateRandomKey()" :style="{color:'red',fontSize: '30px'}">
+                    {{item.date}} 操作，获得 {{item.blockName}} 区 {{ item.inventory }} 张 ,价格为 {{item.price}}~~~
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+<style>
+
+</style>
+</body>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            responseData: '',
+            inventory: 0,
+            serverMsg: '',
+            myList: [],
+            begin: false,
+            sendCount: 0,
+            ticketCount: 0,
+            ticketList: [],
+            currentTime: '',
+            url: 'http://localhost:5678',
+            homeName: '成都蓉城',
+            awayName: '成都蓉城',
+            round: '',
+            date: '',
+            hour: '',
+            minute: ''
+        },
+        mounted() {
+            this.updateTime();
+            setInterval(() => {
+                this.updateTime();
+            }, 1000);
+            this.scheduleList();
+        },
+        methods: {
+
+            generateRandomKey() {
+                return Math.random().toString(36).substr(2, 9); // 生成长度为 8 的随机字符串作为 key
+            },
+
+            formattedDate(date) {
+                const dateObj = new Date(date);
+                const year = dateObj.getFullYear();
+                const month = dateObj.getMonth() + 1;
+                const day = dateObj.getDate();
+                return `${year}年${month}月${day}日`;
+            },
+
+            scheduleList() {
+                fetch(this.url + '/api/schedule/list', {
+                    method: 'GET',
+                    mode: 'cors' // 允许跨域请求
+                }) // 替换为您的 API 地址
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentMatchData = data[0];
+                        console.log(currentMatchData)
+                        this.homeName = currentMatchData.homeName
+                        this.awayName = currentMatchData.awayName
+                        this.round = currentMatchData.round
+                        this.date = this.formattedDate(currentMatchData.date)
+                        this.hour = currentMatchData.hour
+                        this.minute = currentMatchData.minute
+
+                    })
+                    .catch(error => {
+                        console.error('发生错误:', error);
+                    });
+            },
+
+            updateTime() {
+                const now = new Date();
+                this.currentTime = now.toLocaleTimeString();
+            },
+            stopSending: function () {
+                this.begin = false
+            },
+
+            sending: function () {
+                this.begin = true
+                setInterval(() => {
+                    if (this.begin) {
+                        console.log('每隔200毫秒抢一下');
+                        this.sendCount += 1
+                        this.getData()
+                    } else {
+                        console.log('停止抢票');
+                    }
+                }, 1000);
+            },
+
+            getData: function () {
+                fetch(this.url + '/api/general-ticket/latestTicketInfo', {
+                    method: 'GET',
+                    mode: 'cors' // 允许跨域请求
+                }) // 替换为您的 API 地址
+                    .then(response => response.json())
+                    .then(data => {
+                        const blockInfos = data.blockInfos
+                        console.log(blockInfos)
+
+                        if (blockInfos.length > 0) {
+
+                            blockInfos.forEach(item => {
+                                const now = new Date();
+                                const currentTime = now.toLocaleString('zh-CN', {
+                                    hour: 'numeric',
+                                    minute: 'numeric',
+                                    second: 'numeric',
+                                    fractionalSecondDigits: 3
+                                });
+                                const inventory = item.inventory
+                                const blockName = item.blockName
+                                const price = item.price
+                                const newItem = {date: currentTime, inventory: inventory};
+                                this.myList.push(newItem);
+                                if (this.myList.length > 5) {
+                                    console.log("现在的长度是" + this.myList.length)
+                                    this.myList.splice(0, 1);
+                                }
+
+                                console.log("有票了，赶快抢!!!，还有 " + this.inventory + "张！！！")
+                                this.inventory = inventory
+                                this.ticketCount += 1
+
+
+                                const ticketItemDate = new Date();
+                                const currentTicketItemDate = ticketItemDate.toLocaleString('zh-CN', {
+                                    hour: 'numeric',
+                                    minute: 'numeric',
+                                    second: 'numeric',
+                                    fractionalSecondDigits: 3
+                                });
+                                const ticketItem = {
+                                    date: currentTicketItemDate,
+                                    blockName: blockName,
+                                    inventory: inventory,
+                                    price: price
+                                };
+                                this.ticketList.unshift(ticketItem)
+                                if (this.ticketList.length > 10) {
+                                    console.log("现在的长度是" + this.myList.length)
+                                    this.ticketList.pop();
+                                }
+                            });
+                        } else {
+                            console.log("没有票哦哦哦哦哦哦")
+                            const now = new Date();
+                            const currentTime = now.toLocaleString('zh-CN', {
+                                hour: 'numeric',
+                                minute: 'numeric',
+                                second: 'numeric',
+                                fractionalSecondDigits: 3
+                            });
+                            const newItem = {date: currentTime, inventory: 0};
+                            this.myList.push(newItem);
+                            if (this.myList.length > 10) {
+                                this.myList.splice(0, 1);
+                            }
+                        }
+
+                    })
+                    .catch(error => {
+                        console.error('发生错误:', error);
+                        const now = new Date();
+                        const currentTime = now.toLocaleString('zh-CN', {
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            second: 'numeric',
+                            fractionalSecondDigits: 3
+                        });
+                        const newItem = {date: currentTime, inventory: -9999};
+                        this.myList.push(newItem);
+                        if (this.myList.length > 10) {
+                            this.myList.splice(0, 1);
+                            console.log(this.myList)
+                        }
+                    });
+            }
+        }
+    });
+</script>
+</html>
