@@ -9,7 +9,7 @@
 <body>
 <div id="app">
     <p :style="{ color: 'red', fontSize: '50px',margin:0 }">成都蓉城主场剩余散票实时信息</p>
-    <img src="./SportRegistration/static/img/fenghuangshan.png" style="width: 900px; height: 400px;"/>
+    <img src="./SportRegistration/static/img/fenghuangshan.png" style="width: 900px; height: 400px;" alt="球场示意图"/>
     <p></p>
     <span :style="{ color: 'red', fontSize: '40px' }">{{homeName}}</span>
     <span :style="{ color: 'black', fontSize: '40px' }"> VS </span>
@@ -57,9 +57,7 @@
 
 
 </div>
-<style>
 
-</style>
 </body>
 <script>
 
@@ -237,5 +235,9 @@
             }
         }
     });
+
+    function helloFunction(x) {
+        console.log("print" + x + " in helloFunction")
+    }("wangrui")
 </script>
 </html>
