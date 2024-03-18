@@ -17,7 +17,13 @@ open class CompetitionEntity(
     private val gameType: Competition.GameType?,
     private val gameDate: LocalDateTime?,
     private val venue: String?,
+    /**
+     * 联系人
+     */
     private val contacts: String?,
+    /**
+     * 比赛申明
+     */
     private val competitionStatement: String?,
     private val applicantsLimit: Int?,
     private val createTime: LocalDateTime?,

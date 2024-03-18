@@ -1,12 +1,14 @@
 {
-  "navigationBarTitleText": "比赛小工具",
+  "navigationBarTitleText": "比赛/报名小工具",
   "navigationBarBackgroundColor": "#f33e54",
   "navigationBarTextStyle": "white",
   "usingComponents": {
-    "uni-forms": "/uni_modules/uni-forms/components/uni-forms/uni-forms",
-    "uni-easyinput": "/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput",
-    "uni-forms-item": "/uni_modules/uni-forms/components/uni-forms-item/uni-forms-item",
     "uni-section": "/uni_modules/uni-section/components/uni-section/uni-section",
-    "uni-datetime-picker": "/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker"
+    "uni-list": "/uni_modules/uni-list/components/uni-list/uni-list",
+    "uni-list-chat": "/uni_modules/uni-list/components/uni-list-chat/uni-list-chat",
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "u-line": "/uni_modules/uview-ui/components/u-line/u-line",
+    "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup",
+    "uni-popup-dialog": "/uni_modules/uni-popup/components/uni-popup-dialog/uni-popup-dialog"
   }
 }

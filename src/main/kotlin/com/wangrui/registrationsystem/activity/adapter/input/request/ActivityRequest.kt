@@ -12,11 +12,26 @@ import java.time.LocalDateTime
  */
 
 data class ActivityRequest(
+    /**
+     * 活动的名称
+     */
     val name: String,
+    /**
+     * 活动的开始时间
+     */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm") val startTime: LocalDateTime,
+    /**
+     * 活动的结束时间
+     */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm") val endTime: LocalDateTime,
-    val cover: String="",
-    val location: String="",
+    /**
+     * 活动的图片
+     */
+    val cover: String = "",
+    /**
+     * 活动地点
+     */
+    val location: String = "",
 ) {
     companion object {
         fun toActivity(id: String, activityRequest: ActivityRequest): Activity {

@@ -1,5 +1,7 @@
 <style lang='scss'>
-	@import "@/uni_modules/uview-ui/index.scss";
+	/* @import "@/uni_modules/uview-ui/index.scss"; */
+	@import "uni.scss";
+	@import '@/uni_modules/uni-scss/index.scss';
 </style>
 <script>
 	export default {

@@ -1,7 +1,6 @@
 package com.wangrui.registrationsystem.competition.application.port.input
 
-import com.wangrui.registrationsystem.competition.domain.Competition
-import com.wangrui.registrationsystem.competition.domain.CompetitionId
+import com.wangrui.registrationsystem.competition.domain.*
 
 /**
  * Created on 2023/3/7 22:57.
@@ -13,5 +12,8 @@ interface CreateCompetitionUseCase {
     fun createCompetition(competition: Competition): Competition
     fun getCompetition(id: CompetitionId): Competition
 
-    fun getAllCompetition():List<Competition>
+    fun getAllCompetition(): List<Competition>
+    fun signIn(toSignIn: SignIn): SignInResult
+    fun queryUserSignCompetitions(toUserSignCompetition: UserSignCompetition): List<UserSignCompetitionResult>
+    fun queryUserSignCompetitions(signCompetition: SignCompetition): List<UserSignCompetitionResult>
 }

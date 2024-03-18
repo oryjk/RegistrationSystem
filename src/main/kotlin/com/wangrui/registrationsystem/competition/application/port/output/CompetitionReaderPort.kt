@@ -1,7 +1,6 @@
 package com.wangrui.registrationsystem.competition.application.port.output
 
-import com.wangrui.registrationsystem.competition.domain.Competition
-import com.wangrui.registrationsystem.competition.domain.CompetitionId
+import com.wangrui.registrationsystem.competition.domain.*
 
 /**
  * Created on 2023/3/7 23:09.
@@ -12,4 +11,6 @@ import com.wangrui.registrationsystem.competition.domain.CompetitionId
 interface CompetitionReaderPort {
     fun getCompetition(competitionId: CompetitionId): Competition
     fun getAllCompetition(): List<Competition>
+    fun queryUserSignCompetitions(userSignCompetition: UserSignCompetition): List<UserSignCompetitionResult>
+    fun queryUserSignCompetitions(userSignCompetition: SignCompetition): List<UserSignCompetitionResult>
 }

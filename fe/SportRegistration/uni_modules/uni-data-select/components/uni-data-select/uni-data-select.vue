@@ -4,10 +4,14 @@
 		<view class="uni-stat-box" :class="{'uni-stat__actived': current}">
 			<view class="uni-select" :class="{'uni-select--disabled':disabled}">
 				<view class="uni-select__input-box" @click="toggleSelector">
-					<view v-if="current" class="uni-select__input-text">{{current}}</view>
+					<view v-if="current" class="uni-select__input-text">{{textShow}}</view>
 					<view v-else class="uni-select__input-text uni-select__input-placeholder">{{typePlaceholder}}</view>
-					<uni-icons v-if="current && clear && !disabled" type="clear" color="#c0c4cc" size="24" @click="clearVal" />
-					<uni-icons v-else :type="showSelector? 'top' : 'bottom'" size="14" color="#999" />
+					<view v-if="current && clear && !disabled" @click.stop="clearVal" >
+						<uni-icons type="clear" color="#c0c4cc" size="24"/>
+					</view>
+					<view v-else>
+						<uni-icons :type="showSelector? 'top' : 'bottom'" size="14" color="#999" />
+					</view>
 				</view>
 				<view class="uni-select--mask" v-if="showSelector" @click="toggleSelector" />
 				<view class="uni-select__selector" v-if="showSelector">
@@ -43,7 +47,7 @@
 	 */
 
 	export default {
-		name: "uni-stat-select",
+		name: "uni-data-select",
 		mixins: [uniCloud.mixinDatacom || {}],
 		props: {
 			localdata: {
@@ -128,8 +132,17 @@
 				// #ifndef VUE3
 				return this.value;
 				// #endif
+			},
+			textShow(){
+				// 长文本显示
+				let text = this.current;
+				if (text.length > 10) {
+					return text.slice(0, 25) + '...';
+				}
+				return text;
 			}
 		},
+
 		watch: {
 			localdata: {
 				immediate: true,
@@ -149,7 +162,8 @@
 						this.initDefVal()
 					}
 				}
-			}
+			},
+
 		},
 		methods: {
 			debounce(fn, time = 100){
@@ -227,9 +241,9 @@
 				}
 			},
 			emit(val) {
-				this.$emit('change', val)
 				this.$emit('input', val)
 				this.$emit('update:modelValue', val)
+				this.$emit('change', val)
 				if (this.collection) {
 					this.setCache(val);
 				}
@@ -315,7 +329,9 @@
 		display: flex;
 		align-items: center;
 		// padding: 15px;
+		/* #ifdef H5 */
 		cursor: pointer;
+		/* #endif */
 		width: 100%;
 		flex: 1;
 		box-sizing: border-box;
@@ -419,6 +435,14 @@
 		/* #endif */
 	}
 
+	/* #ifdef H5 */
+	@media (min-width: 768px) {
+		.uni-select__selector-scroll {
+			max-height: 600px;
+		}
+	}
+	/* #endif */
+
 	.uni-select__selector-empty,
 	.uni-select__selector-item {
 		/* #ifndef APP-NVUE */
@@ -498,5 +522,6 @@
 		bottom: 0;
 		right: 0;
 		left: 0;
+		z-index: 2;
 	}
 </style>
