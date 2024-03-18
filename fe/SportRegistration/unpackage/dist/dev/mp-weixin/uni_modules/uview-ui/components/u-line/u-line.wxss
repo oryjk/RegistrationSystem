@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* 需要放到文件最上面 */
+/* 水平间距 */
+/* 水平间距 */
+/*
+ 以下变量是默认值，如不需要修改可以不用给下面的变量重新赋值
+ */
+/* 水平间距 */
+view.data-v-727e452e, scroll-view.data-v-727e452e, swiper-item.data-v-727e452e {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.u-line.data-v-727e452e {
+  vertical-align: middle;
+}
+
