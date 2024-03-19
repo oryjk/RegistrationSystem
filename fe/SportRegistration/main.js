@@ -7,7 +7,8 @@ import uView from '@/uni_modules/uview-ui'
 uni.$u.config.unit = 'rpx'
 console.log(uni.$u.config.v);
 Vue.config.productionTip = false
-Vue.prototype.$serverHost='http://localhost'
+/*Vue.prototype.$serverHost='http://localhost'*/
+Vue.prototype.$serverHost='https://oryjk.cn'
 Vue.prototype.$port='5678'
 // Vue.prototype.$serverUrl='http://'+$serverHost+':'+$port
 App.mpType = 'app'
