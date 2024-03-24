@@ -38,3 +38,7 @@ out/
 
 ### vue3 ###
 /myApp/dist
+
+**/unpackage/
+**/uniCloud-aliyun/
+**/.hbuilderx/

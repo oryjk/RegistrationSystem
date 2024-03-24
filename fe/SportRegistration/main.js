@@ -2,7 +2,6 @@ import App from './App.vue'
 
 // #ifndef VUE3
 import Vue from 'vue'
-import uView from '@/uni_modules/uview-ui'
 // Vue.use(uView)
 uni.$u.config.unit = 'rpx'
 console.log(uni.$u.config.v);
